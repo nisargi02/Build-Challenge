@@ -15,7 +15,7 @@ Thread synchronization is implemented using:
 The implementation is modular, production-style, and fully tested.
 
 ## Architecture
-
+```
 +----------------+          +------------------------+          +----------------------+
 | Source List    |  --->    | BoundedBlockingQueue   |  --->    | Destination List     |
 +----------------+          |  (shared buffer)       |          +----------------------+
@@ -24,7 +24,7 @@ The implementation is modular, production-style, and fully tested.
                                     /     \
                              Producer     Consumer
                               Thread       Thread
-
+```
 
 ### Flow
 
