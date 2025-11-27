@@ -8,10 +8,37 @@ A Shared Bounded Queue that enforces blocking behavior when full or empty
 
 
 Thread synchronization is implemented using:  
--threading.Lock  
--threading.Condition  
--wait() / notify()  
+- threading.Lock  
+- threading.Condition  
+- wait() / notify()  
 
+## Features Implemented
+
+- Custom bounded blocking queue using Condition variables
+- Proper blocking behavior on full/empty buffer
+- Dedicated producer and consumer thread classes
+- Graceful shutdown using a sentinel value
+- End-to-end processing pipeline orchestrator
+- Thread-safe shared buffer interactions
+- Unit tests covering queue behavior and full pipeline flow
+- Console-based logging of producer/consumer actions
+
+## Design Decisions
+
+- Custom blocking queue:  
+Implemented a lightweight queue with precise control over wait()/notify() behavior instead of relying on built-in queue.Queue, to demonstrate understanding of condition variables.
+
+- Modular threading components:  
+Producer, Consumer, and Pipeline are implemented as separate modules for clarity, reusability, and easier testing.
+
+- Sentinel-based shutdown:
+A sentinel object cleanly signals termination without requiring forced thread interruption.  
+
+- Deterministic logging:  
+Timestamps and structured log messages make the execution trace easy to follow and debug.
+
+- Testability:  
+Blocking queue logic is tested independently from the pipeline, ensuring correctness of concurrency semantics.
 
 ## Architecture
 ```
@@ -46,20 +73,19 @@ assignment1/
    └─ test_pipeline.py        # Tests full pipeline
 ```
 
-## How to Run the Demo
+## Setup
 
 git clone <your-repo-url>.git  
 cd Assignment1
 
-### Create virtual environment
-python3 -m venv venv  
-source venv/bin/activate (MacOs/Linux)  
-venv\Scripts\activate (Windows)  
+python -m venv .venv
+source .venv/bin/activate  (MacOs/Linux)  
+.venv\Scripts\activate (Windows)
 
-### Run the demo
+## Running the Analysis
 python -m main
 
-### Run all tests
+## Running Tests
 python -m unittest discover -s tests
 
 ## Sample Output
