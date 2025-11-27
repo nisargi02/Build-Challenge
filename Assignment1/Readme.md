@@ -62,7 +62,7 @@ python -m main
 ### Run all tests
 python -m unittest discover -s tests
 
-### Sample Output
+## Sample Output
 ```
 [ProducerThread] 21:43:59 - Produced item-1 (queue size=1)
 [ProducerThread] 21:43:59 - Produced item-2 (queue size=2)
