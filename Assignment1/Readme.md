@@ -75,12 +75,14 @@ assignment1/
 
 ## Setup
 
-git clone <your-repo-url>.git  
-cd Assignment1
+git clone https://github.com/nisargi02/Build-Challenge.git 
+cd < repository >
 
 python -m venv .venv
 source .venv/bin/activate  (MacOs/Linux)  
-.venv\Scripts\activate (Windows)
+.venv\Scripts\activate (Windows)  
+
+cd Assignment1  
 
 ## Running the Analysis
 python -m main
