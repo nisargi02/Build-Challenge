@@ -12,7 +12,7 @@ This repository contains solutions to two technical build challenges, demonstrat
 
 Both assignments are implemented in Python, fully modular, and include test coverage.
 
-## Assignment1 - Producer–Consumer with Bounded Blocking Queue
+## Assignment  1 - Producer–Consumer with Bounded Blocking Queue
 
 A concurrent system implementing:  
 - Custom thread-safe bounded queue
@@ -21,7 +21,7 @@ A concurrent system implementing:
 - Graceful shutdown via sentinel
 - Fully tested pipeline and queue behavior
 
-Detailed README: Assignment1/Readme.md
+Detailed README: Assignment1/Readme.md  
 Code location: Assignment1/
 
 ## Assignment 2 – Sales Analysis with Functional Programming
@@ -33,7 +33,7 @@ A functional-style analytics engine using:
 - CSV parsing using Python stdlib
 - Tests covering all analytic functions
 
-Detailed README: Assignment2/Readme.md
+Detailed README: Assignment2/Readme.md  
 Code location: Assignment2/
 
 ## Setup

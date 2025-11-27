@@ -1,0 +1,22 @@
+# -------------------------
+# Python Cache
+# -------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# -------------------------
+# Virtual Environments
+# -------------------------
+venv/
+.venv/
+
+
+
