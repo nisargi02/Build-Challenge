@@ -35,7 +35,7 @@ The implementation is modular, production-style, and fully tested.
 5. A sentinel value signals completion
 
 ## Directory Structure
-
+```
 assignment1/
 ├─ blocking_queue.py         # Custom bounded blocking queue using Condition
 ├─ producer.py               # Producer thread implementation
@@ -45,7 +45,7 @@ assignment1/
 └─ tests/
    ├─ test_blocking_queue.py  # Tests blocking behavior + concurrency
    └─ test_pipeline.py        # Tests full pipeline
-
+```
 
 ## How to Run the Demo
 
@@ -53,11 +53,11 @@ git clone <your-repo-url>.git
 cd Assignment1
 
 ### Create virtual environment (MacOS/Linux)
-python3 -m venv venv
+python3 -m venv venv  
 source venv/bin/activate
 
 ### Windows
-python -m venv venv
+python -m venv venv  
 venv\Scripts\activate
 
 ### Run the demo
@@ -67,7 +67,7 @@ python -m main
 python -m unittest discover -s tests
 
 ## Sample Output
-
+```
 [ProducerThread] 21:43:59 - Produced item-1 (queue size=1)
 [ProducerThread] 21:43:59 - Produced item-2 (queue size=2)
 [ConsumerThread] 21:43:59 - Consumed item-1 (queue size=1)
@@ -90,7 +90,9 @@ python -m unittest discover -s tests
 [ProducerThread] 21:43:59 - Produced sentinel, producer exiting.
 [ConsumerThread] 21:43:59 - Consumed item-10 (queue size=1)
 [ConsumerThread] 21:43:59 - Received sentinel, consumer exiting.
+```
 
-=== Assignment 1: Producer–Consumer Demo ===  
+
+### === Assignment 1: Producer–Consumer Demo ===  
 Source container:      ['item-1', 'item-2', 'item-3', 'item-4', 'item-5', 'item-6', 'item-7', 'item-8', 'item-9', 'item-10']  
 Destination container: PipelineResult(destination=['item-1', 'item-2', 'item-3', 'item-4', 'item-5', 'item-6', 'item-7', 'item-8', 'item-9', 'item-10'], produced_count=10, consumed_count=10)
