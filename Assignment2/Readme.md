@@ -6,10 +6,50 @@ It mirrors Java Stream-style operations using Python's functional APIs (map, fil
 
 ## Key Objectives
 
--Functional programming  
--Stream-like operations over CSV records  
--Data aggregation and grouping  
--Lambda expressions and higher-order functions  
+- Functional programming  
+- Stream-like operations over CSV records  
+- Data aggregation and grouping  
+- Lambda expressions and higher-order functions  
+
+## Features Implemented
+
+- Typed SaleRecord dataclass modeling each CSV row  
+- CSV loader with validation and type conversion  
+- Stream-style analytical operations: map, filter, grouping, sorting  
+- Functional programming patterns with minimal mutation  
+- Aggregation: revenue by country, category, customer, and month  
+- Computation metrics: total revenue, returns rate, average order value  
+- Modular structure with separation of concerns  
+- Unit tests covering all analytical functions  
+- Console-based report summarizing all analysis 
+
+...
+
+
+## Design Decisions
+
+- Minimal and meaningful class usage:  
+The assignment requires implementing the appropriate classes, which is fulfilled by the SaleRecord dataclass used to model each CSV row. Additional classes were intentionally avoided because they would add unnecessary abstraction without improving clarity.
+
+- Functional analytics for clarity and testability:  
+All analysis logic is implemented as pure, stateless functions to align with the assignment’s emphasis on functional programming and stream-style operations. This approach is also more Pythonic, easier to test, and avoids forcing Java-style class structures where they are not needed.
+
+- Modular structure:  
+Data modeling, CSV parsing, analytics, and execution are separated into focused modules to keep the codebase clean, maintainable, and easy to extend.  
+
+- Use of built-in CSV and pathlib:  
+Avoided external dependencies like Pandas to keep the project lightweight and aligned with the challenge requirements.
+
+- Deterministic sorting:  
+Aggregation outputs are sorted for predictable and testable results.
+
+## Extensibility
+The current architecture allows easy extension, such as:  
+- Adding new metrics (e.g., median order value, customer lifetime value)  
+- Supporting alternative file formats (JSON, Parquet)
+- Replacing CSV loader with a database source
+- Adding CLI flags for selecting analysis modules
+- Exporting reports to JSON or HTML
 
 ## Dataset
 File: data/sales.csv
@@ -28,9 +68,9 @@ returned (TRUE / FALSE)
 
 ## Assumptions
 
--discount is a fraction (e.g., 0.15 = 15%).    
--Returned orders contribute 0 to net revenue.  
--order_date uses ISO format YYYY-MM-DD.  
+discount is a fraction (e.g., 0.15 = 15%).    
+Returned orders contribute 0 to net revenue.  
+order_date uses ISO format YYYY-MM-DD.  
 
 ## Directory Structure
 ```
@@ -49,14 +89,13 @@ Assignment2/
 ```
 
 
-
 ## Setup
 
 git clone <your-repo-url>.git  
 cd Assignment2
 
 python -m venv .venv
-source .venv/bin/activate  (MacOs/Linux)
+source .venv/bin/activate  (MacOs/Linux)  
 .venv\Scripts\activate (Windows)
 
 
@@ -67,7 +106,7 @@ python -m main
 python -m unittest discover -s tests
 
 ## Sample Output
-
+```
 ===== SALES ANALYTICS =====
 Total records: 5000
 
@@ -97,3 +136,4 @@ C1023 15000.00
 C0501 12000.00
 ...
 
+```
