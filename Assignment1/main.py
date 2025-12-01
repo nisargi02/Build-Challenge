@@ -1,8 +1,6 @@
 """
 main.py
 
-Entry point script for Assignment 1.
-
 Demonstrates:
 - Thread synchronization
 - Concurrent programming
