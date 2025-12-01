@@ -31,12 +31,12 @@ Implemented a lightweight queue with precise control over wait()/notify() behavi
 - Modular threading components:  
 Producer, Consumer, and Pipeline are implemented as separate modules for clarity, reusability, and easier testing.
 
-- Sentinel-based shutdown:
+- Sentinel-based shutdown:  
 A sentinel object cleanly signals termination without requiring forced thread interruption.  
 
 - Sentinel choice:
-  By default, the pipeline uses `None` as the sentinel value. This is safe for the demo since the data items are non-None strings (e.g., "item-1", "item-2", ...).  
-  If your data may legitimately contain `None`, you should pass a custom `sentinel` value to `run_pipeline(...)` so that `None` is treated as normal data and only the custom sentinel marks the end of the stream.
+By default, the pipeline uses `None` as the sentinel value. This is safe for the demo since the data items are non-None strings (e.g., "item-1", "item-2", ...).  
+If your data may legitimately contain `None`, you should pass a custom `sentinel` value to `run_pipeline(...)` so that `None` is treated as normal data and only the custom sentinel marks the end of the stream.
 
 - Deterministic logging:  
 Timestamps and structured log messages make the execution trace easy to follow and debug.
