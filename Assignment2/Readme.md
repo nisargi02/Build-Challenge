@@ -31,7 +31,7 @@ This project demonstrates functional-style data analysis over CSV sales data in 
 The assignment requires implementing classes. SaleRecord models CSV rows, and SalesAnalyzer provides a clean OO wrapper around the functional analytics.  
 All business logic remains in stateless, testable pure functions.
 
-- Functional analytics for clarity and testability:
+- Functional analytics for clarity and testability:  
 Core operations use functional programming patterns (map, lambdas, comprehensions) to align with the assignment’s emphasis on streams.
 
 - Modular structure:  
