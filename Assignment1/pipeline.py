@@ -19,7 +19,7 @@ from dataclasses import dataclass
 
 @dataclass
 class PipelineResult:
-    destination: list
+    destination: List[Any]
     produced_count: int
     consumed_count: int
 
@@ -37,10 +37,11 @@ def run_pipeline(
     :return: Destination container with all items consumed from the queue.
     """
     queue = BoundedBlockingQueue(capacity=buffer_capacity)
-    produced_count = len(list(source))
+    source_list = list(source)
+    produced_count = len(source_list)
     destination: List[Any] = []
 
-    producer = Producer(source=source, queue=queue, sentinel=sentinel)
+    producer = Producer(source=source_list, queue=queue, sentinel=sentinel)
     consumer = Consumer(queue=queue, destination=destination, sentinel=sentinel)
 
     producer.start()

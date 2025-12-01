@@ -12,6 +12,7 @@ The goal is to ensure correct wait/notify synchronization
 and proper behavior under concurrent access.
 """
 
+from typing import Any
 import unittest
 import threading
 import time
@@ -69,7 +70,7 @@ class TestBoundedBlockingQueueConcurrency(unittest.TestCase):
         # Fill queue to capacity → next put must block
         q.put("first")
 
-        produced = []
+        produced: list[Any] = []
         started_second_put = threading.Event()
         finished_second_put = threading.Event()
 
@@ -123,7 +124,8 @@ class TestBoundedBlockingQueueConcurrency(unittest.TestCase):
         """
         q = BoundedBlockingQueue(capacity=1)
 
-        consumed = []
+        consumed: list[Any] = []
+
         consumer_started = threading.Event()
         consumer_finished = threading.Event()
 
