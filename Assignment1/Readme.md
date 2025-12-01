@@ -72,7 +72,7 @@ Assignment1/
 ├─ consumer.py               # Consumer thread implementation
 ├─ pipeline.py               # Orchestrates producer + consumer + queue
 ├─ main.py        # Demo executable
-└─ tests/
+└─ Tests/
    ├─ test_blocking_queue.py  # Tests blocking behavior + concurrency
    └─ test_pipeline.py        # Tests full pipeline
 ```
@@ -92,7 +92,7 @@ cd Assignment1
 python -m main
 
 ## Running Tests
-python -m unittest discover -s tests
+python -m unittest discover -s Tests
 
 ## Sample Output
 ```

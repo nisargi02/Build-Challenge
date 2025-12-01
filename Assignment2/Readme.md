@@ -95,7 +95,7 @@ This dataset is intentionally compact, but the analysis code is designed to work
 Assignment2/
 ├─ data/
 │  └─ sales.csv
-├─ tests/
+├─ Tests/
 │  ├─ __init__.py
 │  └─ test_sales_analysis.py
 ├─ __init__.py
@@ -124,7 +124,7 @@ cd Assignment2
 python -m main
 
 ## Running Tests
-python -m unittest discover -s tests
+python -m unittest discover -s Tests
 
 ## Sample Output
 ```
