@@ -2,7 +2,7 @@
 
 ## Overview
 This project demonstrates functional-style data analysis over CSV sales data in Python.  
-It mirrors Java Stream-style operations using Python's functional APIs (map, filter, lambdas) and aggregation patterns.  
+
 
 ## Key Objectives
 
@@ -29,10 +29,11 @@ It mirrors Java Stream-style operations using Python's functional APIs (map, fil
 ## Design Decisions
 
 - Minimal and meaningful class usage:  
-The assignment requires implementing the appropriate classes, which is fulfilled by the SaleRecord dataclass used to model each CSV row. Additional classes were intentionally avoided because they would add unnecessary abstraction without improving clarity.
+The assignment requires implementing classes.SaleRecord models CSV rows, and SalesAnalyzer provides a clean OO wrapper around the functional analytics.  
+All business logic remains in stateless, testable pure functions.
 
-- Functional analytics for clarity and testability:  
-All analysis logic is implemented as pure, stateless functions to align with the assignment’s emphasis on functional programming and stream-style operations. This approach is also more Pythonic, easier to test, and avoids forcing Java-style class structures where they are not needed.
+- Functional analytics for clarity and testability 
+Core operations use functional programming patterns (map, lambdas, comprehensions) to align with the assignment’s emphasis on streams.
 
 - Modular structure:  
 Data modeling, CSV parsing, analytics, and execution are separated into focused modules to keep the codebase clean, maintainable, and easy to extend.  
@@ -66,6 +67,29 @@ unit_price (float)
 discount (float, 0–1)  
 returned (TRUE / FALSE)  
 
+## Why This Dataset Was Chosen
+
+The assignment requires selecting or constructing a CSV dataset suitable for demonstrating functional programming, stream-style operations, and data aggregation.
+To meet this requirement, a custom dataset was created that contains a realistic mix of sales transactions.  
+
+Reasons for this dataset choice:  
+- Represents typical sales transaction data with fields commonly found in retail and service workflows.
+- Includes numeric fields (quantity, unit price, discount) enabling meaningful revenue calculations.
+- Contains multiple categorical dimensions (country, category, product, customer), allowing grouping and aggregation operations.
+- Includes returned transactions, enabling conditional logic and edge-case handling.
+- Uses a clean, simple schema, letting the focus remain on the analysis logic rather than data cleaning.
+- Small enough for unit testing, but representative of patterns seen in larger datasets.
+
+## Dataset Design Considerations & Assumptions
+
+- Date format uses ISO YYYY-MM-DD for easy parsing and sorting.
+- Discount values are expressed as fractions (0.20 = 20%).
+- Returned orders produce zero net revenue, matching standard accounting treatment.
+- Field types map directly to the SaleRecord dataclass for clarity and type safety.
+- Categories and countries are varied to support grouping and segmentation.  
+
+This dataset is intentionally compact, but the analysis code is designed to work the same way for thousands of rows.
+
 ## Assumptions
 
 discount is a fraction (e.g., 0.15 = 15%).    
@@ -75,24 +99,26 @@ order_date uses ISO format YYYY-MM-DD.
 ## Directory Structure
 ```
 Assignment2/
-├─ Data/
+├─ data/
 │  └─ sales.csv
-├─ Tests/
+├─ tests/
 │  ├─ __init__.py
 │  └─ test_sales_analysis.py
 ├─ __init__.py
 ├─ analysis.py
+├─ sales_analysis.py
 ├─ io_utils.py
 ├─ main.py
 ├─ models.py
 └─ Readme.md
+
 ```
 
 
 ## Setup
 
-git clone https://github.com/nisargi02/Build-Challenge.git   
-cd < repository >  
+git clone ```https://github.com/nisargi02/Build-Challenge.git ```   
+cd ```<repository>   ```  
 
 python -m venv .venv
 source .venv/bin/activate  (MacOs/Linux)  

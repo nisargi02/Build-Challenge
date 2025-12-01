@@ -39,7 +39,7 @@ Code location: Assignment2/
 ## Setup
 
 git clone ```https://github.com/nisargi02/Build-Challenge.git ```   
-cd ```< repository >   ```
+cd ```<repository>   ```
 
 
 python -m venv .venv  

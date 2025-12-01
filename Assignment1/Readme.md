@@ -62,7 +62,7 @@ Blocking queue logic is tested independently from the pipeline, ensuring correct
 
 ## Directory Structure
 ```
-assignment1/
+Assignment1/
 ├─ blocking_queue.py         # Custom bounded blocking queue using Condition
 ├─ producer.py               # Producer thread implementation
 ├─ consumer.py               # Consumer thread implementation
@@ -75,8 +75,8 @@ assignment1/
 
 ## Setup
 
-git clone https://github.com/nisargi02/Build-Challenge.git 
-cd < repository >
+git clone ```https://github.com/nisargi02/Build-Challenge.git ```   
+cd ```<repository>   ```  
 
 python -m venv .venv
 source .venv/bin/activate  (MacOs/Linux)  

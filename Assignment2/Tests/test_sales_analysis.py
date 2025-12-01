@@ -145,6 +145,26 @@ class TestAnalysis(unittest.TestCase):
         self.assertIn("Electronics", category_revenue)
         self.assertIn("Accessories", category_revenue)
 
+class TestSalesAnalyzerWrapper(unittest.TestCase):
+    def test_summary(self):
+        from sales_analysis import SalesAnalyzer
+        analyzer = SalesAnalyzer(_sample_sales())
+        summary = analyzer.summary()
 
+        # Structure checks
+        self.assertIn("total_revenue", summary)
+        self.assertIn("revenue_by_country", summary)
+        self.assertIn("top_customers_by_revenue", summary)
+
+        # Sanity check that wrapper delegates correctly
+        self.assertAlmostEqual(
+            summary["total_revenue"],
+            total_revenue(_sample_sales()),
+            places=2,
+        )
+        
 if __name__ == "__main__":
     unittest.main()
+
+
+
