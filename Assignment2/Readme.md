@@ -22,14 +22,13 @@ This project demonstrates functional-style data analysis over CSV sales data in 
 - Modular structure with separation of concerns  
 - Unit tests covering all analytical functions  
 - Console-based report summarizing all analysis 
-
 ...
 
 
 ## Design Decisions
 
 - Minimal and meaningful class usage:  
-The assignment requires implementing classes.SaleRecord models CSV rows, and SalesAnalyzer provides a clean OO wrapper around the functional analytics.  
+The assignment requires implementing classes. SaleRecord models CSV rows, and SalesAnalyzer provides a clean OO wrapper around the functional analytics.  
 All business logic remains in stateless, testable pure functions.
 
 - Functional analytics for clarity and testability 
@@ -70,9 +69,9 @@ returned (TRUE / FALSE)
 ## Why This Dataset Was Chosen
 
 The assignment requires selecting or constructing a CSV dataset suitable for demonstrating functional programming, stream-style operations, and data aggregation.
-To meet this requirement, a custom dataset was created that contains a realistic mix of sales transactions.  
+To meet this requirement, a custom dataset was created that contains a realistic mix of sales transactions.
 
-Reasons for this dataset choice:  
+Reasons for this dataset choice:
 - Represents typical sales transaction data with fields commonly found in retail and service workflows.
 - Includes numeric fields (quantity, unit price, discount) enabling meaningful revenue calculations.
 - Contains multiple categorical dimensions (country, category, product, customer), allowing grouping and aggregation operations.
@@ -90,11 +89,6 @@ Reasons for this dataset choice:
 
 This dataset is intentionally compact, but the analysis code is designed to work the same way for thousands of rows.
 
-## Assumptions
-
-discount is a fraction (e.g., 0.15 = 15%).    
-Returned orders contribute 0 to net revenue.  
-order_date uses ISO format YYYY-MM-DD.  
 
 ## Directory Structure
 ```
