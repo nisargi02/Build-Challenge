@@ -1,5 +1,5 @@
 """
-run_assignment1.py
+main.py
 
 Entry point script for Assignment 1.
 
