@@ -21,7 +21,7 @@ This project demonstrates functional-style data analysis over CSV sales data in 
 - Computation metrics: total revenue, returns rate, average order value  
 - Modular structure with separation of concerns  
 - Unit tests covering all analytical functions  
-- Console-based report summarizing all analysis 
+- Console-based report summarizing all analysis
 ...
 
 
@@ -31,7 +31,7 @@ This project demonstrates functional-style data analysis over CSV sales data in 
 The assignment requires implementing classes. SaleRecord models CSV rows, and SalesAnalyzer provides a clean OO wrapper around the functional analytics.  
 All business logic remains in stateless, testable pure functions.
 
-- Functional analytics for clarity and testability 
+- Functional analytics for clarity and testability:
 Core operations use functional programming patterns (map, lambdas, comprehensions) to align with the assignment’s emphasis on streams.
 
 - Modular structure:  
@@ -114,7 +114,7 @@ Assignment2/
 git clone ```https://github.com/nisargi02/Build-Challenge.git ```   
 cd ```<repository>   ```  
 
-python -m venv .venv
+python -m venv .venv  
 source .venv/bin/activate  (MacOs/Linux)  
 .venv\Scripts\activate (Windows)  
 

@@ -145,6 +145,71 @@ class TestAnalysis(unittest.TestCase):
         self.assertIn("Electronics", category_revenue)
         self.assertIn("Accessories", category_revenue)
 
+    def test_top_n_more_than_customers(self):
+        sales = _sample_sales()
+        top10 = top_n_customers_by_revenue(sales, n=10)
+        # Should just return all distinct customers, not crash
+        self.assertLessEqual(len(top10), len({s.customer_id for s in sales}))
+
+    def test_top_n_zero(self):
+        sales = _sample_sales()
+        top0 = top_n_customers_by_revenue(sales, n=0)
+        self.assertEqual(top0, [])
+
+    def test_empty_sales_total_and_rates(self):
+        empty: list[SaleRecord] = []
+
+        self.assertEqual(total_revenue(empty), 0.0)
+        self.assertEqual(revenue_by_country(empty), {})
+        self.assertEqual(monthly_revenue(empty), {})
+
+        # Whatever your implementation does here – either 0.0 or raises
+        # If you chose 0.0:
+        self.assertEqual(average_order_value(empty), 0.0)
+
+        # returns_rate: again depends on your implementation;
+        # common choice is 0.0 for "no data".
+        self.assertEqual(returns_rate(empty), 0.0)
+    
+    def test_all_returns(self):
+        #to check returns don’t contribute to revenue
+        returned_sales = [
+            SaleRecord(
+                order_id="R1",
+                order_date=date(2024, 3, 1),
+                country="USA",
+                category="Electronics",
+                product="Camera",
+                customer_id="C9",
+                quantity=1,
+                unit_price=500.0,
+                discount=0.0,
+                returned=True,
+            )
+        ]
+
+        self.assertEqual(total_revenue(returned_sales), 0.0)
+        self.assertEqual(revenue_by_country(returned_sales).get("USA", 0.0), 0.0)
+        self.assertAlmostEqual(returns_rate(returned_sales), 1.0, places=4)
+
+    def test_generic_group_sum_empty(self):
+         #An empty input should produce an empty dictionary (no groups)
+        result = generic_group_sum([], key_fn=lambda s: s.country, value_fn=lambda s: s.net_amount)
+        self.assertEqual(result, {})
+
+    def test_revenue_by_country_sums_to_total(self):
+        #Sum of country-level revenue should equal total revenue.
+        total = total_revenue(self.sales)
+        by_country = revenue_by_country(self.sales)
+        self.assertAlmostEqual(sum(by_country.values()), total, places=2)
+
+    def test_revenue_by_category_sums_to_total(self):
+        #Sum of category-level revenue should equal total revenue.
+        total = total_revenue(self.sales)
+        by_category = revenue_by_category(self.sales)
+        self.assertAlmostEqual(sum(by_category.values()), total, places=2)
+
+
 class TestSalesAnalyzerWrapper(unittest.TestCase):
     def test_summary(self):
         from sales_analysis import SalesAnalyzer

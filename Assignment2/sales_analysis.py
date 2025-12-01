@@ -25,8 +25,6 @@ class SalesAnalyzer:
     - Exposes high-level analytical methods as instance methods.
     - Delegates actual computation to the pure functions defined above.
 
-    This design satisfies the "implement required classes" requirement
-    for Assignment 2 while keeping the core logic functional and testable.
     """
 
     def __init__(self, sales: Iterable[SaleRecord]):
